@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Notes App</title>
+    <style>
+body {
+    font-family: 'Times New Roman', Times, serif;
+    margin: 20px;
+    background-color:blanchedalmond;
+}
+
+div {
+    background: beige;
+    border-radius: 10px;
+}
+</style>
+</head>
+<body>
+
+<h1>Welcome to Notes App 📝</h1>
+
+<a href="/add">Add New Note</a>
+
+<hr>
+
+<h2>Your Notes:</h2>
+<form method="GET" action="/">
+    <input type="text" name="search" placeholder="Search notes...">
+    <button type="submit">Search</button>
+</form>
+{% for note in notes %}
+    <div style="border:1px solid black; padding:10px; margin:10px;">
+        <h3>{{ note[1] }}</h3>
+        <p>{{ note[2] }}</p>
+         <small>{{ note[3] }}</small><br>
+        <a href="/delete/{{ note[0] }}">Delete</a>
+        <a href="/edit/{{ note[0] }}">Edit</a>
+    </div>
+{% endfor %}
+
+</body>
+</html>
